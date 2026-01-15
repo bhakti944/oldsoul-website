@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Best Sellers | Old Soul</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">OLD SOUL</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="new-arrival.html">New Arrival</a>
+      <a href="best-seller.html">Best Seller</a>
+      <a href="fine-silver.html">Fine Silver</a>
+      <a href="gifting.html">Gifting</a>
+
+      <!-- Shopping Cart Icon -->
+      <a href="cart.html" class="cart-btn">
+        <img src="https://img.icons8.com/ios-filled/50/000000/shopping-cart.png" alt="Cart">
+        <span class="cart-count" id="cart-count">0</span>
+      </a>
+    </nav>
+</header>
+
+<section class="page-hero">
+  <h1>Best Sellers</h1>
+  <p>Most loved pieces, timeless favorites.</p>
+</section>
+
+<section class="section">
+  <div class="product-card" onclick="openQuickView(this)" data-images="images/best-seller-1.jpg,images/best-seller-1-2.jpg,images/best-seller-1-3.jpg" data-name="Timeless Necklace" data-price="₹2000" data-original-price="₹2500" data-rating="4.5" data-reviews="612">
+    <img src="images/best-seller-1.jpg" alt="Timeless Necklace">
+    <h3>Timeless Necklace</h3>
+    <p>₹2000</p>
+  </div>
+  <div class="product-card" onclick="openQuickView(this)" data-images="images/best-seller-2.jpg,images/best-seller-2-2.jpg,images/best-seller-2-3.jpg" data-name="Elegant Ring" data-price="₹1600" data-original-price="₹2000" data-rating="4.7" data-reviews="458">
+    <img src="images/best-seller-2.jpg" alt="Elegant Ring">
+    <h3>Elegant Ring</h3>
+    <p>₹1600</p>
+  </div>
+  <div class="product-card" onclick="openQuickView(this)" data-images="images/best-seller-3.jpg,images/best-seller-3-2.jpg,images/best-seller-3-3.jpg" data-name="Classic Bracelet" data-price="₹1400" data-original-price="₹1800" data-rating="4.6" data-reviews="523">
+    <img src="images/best-seller-3.jpg" alt="Classic Bracelet">
+    <h3>Classic Bracelet</h3>
+    <p>₹1400</p>
+  </div>
+  <div class="product-card" onclick="openQuickView(this)" data-images="images/best-seller-4.jpg,images/best-seller-4-2.jpg,images/best-seller-4-3.jpg" data-name="Signature Earrings" data-price="₹1300" data-original-price="₹1600" data-rating="4.4" data-reviews="389">
+    <img src="images/best-seller-4.jpg" alt="Signature Earrings">
+    <h3>Signature Earrings</h3>
+    <p>₹1300</p>
+  </div>
+</section>
+
+<!-- Quick View Modal -->
+<div id="quickViewModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeQuickView()">&times;</span>
+
+    <!-- Scrollable Images -->
+    <div class="image-scroll" id="imageScroll">
+      <!-- Images will be populated here -->
+    </div>
+
+    <!-- Product Details -->
+    <div class="modal-details">
+      <h2 id="productName"></h2>
+      <div class="price">
+        <span id="originalPrice"></span>
+        <span id="discountPrice"></span>
+      </div>
+      <div class="rating" id="rating">⭐⭐⭐⭐☆ (612)</div>
+
+      <!-- Options -->
+      <div class="options">
+        <label>Color:</label>
+        <select id="colorSelect">
+          <option value="silver">Silver</option>
+        </select>
+
+        <label>Material:</label>
+        <input type="text" id="material" value="Silver" readonly>
+
+        <label>Chain Length:</label>
+        <select id="chainLength">
+          <option value="16">16 inch</option>
+          <option value="18">18 inch</option>
+          <option value="20">20 inch</option>
+        </select>
+      </div>
+
+      <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<a href="https://wa.me/918080691577" class="whatsapp-btn" target="_blank">
+  WhatsApp
+</a>
+
+<script src="script.js"></script>
+
+</body>
+</html>

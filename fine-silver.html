@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fine Silver | Old Soul</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">OLD SOUL</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="new-arrival.html">New Arrival</a>
+      <a href="best-seller.html">Best Seller</a>
+      <a href="fine-silver.html">Fine Silver</a>
+      <a href="gifting.html">Gifting</a>
+
+      <!-- Shopping Cart Icon -->
+      <a href="cart.html" class="cart-btn">
+        <img src="https://img.icons8.com/ios-filled/50/000000/shopping-cart.png" alt="Cart">
+        <span class="cart-count" id="cart-count">0</span>
+      </a>
+    </nav>
+</header>
+
+<section class="page-hero">
+  <h1>Fine Silver</h1>
+  <p>Pure elegance, timeless shine.</p>
+</section>
+
+<section id="fine-silver" class="section fine-silver-collection">
+  <h2 class="section-title">Fine Silver Collection</h2>
+  <div class="product-grid">
+    <!-- Infinity Loop Silver Necklaces -->
+    <div class="product-card" onclick="openQuickView(this)" data-images="https://i.pinimg.com/736x/5d/b2/e0/5db2e0e16c5e2e2288c625e54b176675.jpg,https://i.pinimg.com/736x/5d/b2/e0/5db2e0e16c5e2e2288c625e54b176675.jpg,https://i.pinimg.com/736x/5d/b2/e0/5db2e0e16c5e2e2288c625e54b176675.jpg" data-name="Infinity Loop Silver Necklace" data-price="₹1800" data-original-price="₹2200">
+      <img
+        src="https://i.pinimg.com/736x/5d/b2/e0/5db2e0e16c5e2e2288c625e54b176675.jpg"
+        alt="Infinity Loop Silver Necklaces"
+        class="product-image fine-silver-img"
+      />
+      <h3 class="product-name">Infinity Loop Silver Necklace</h3>
+      <p>₹1800</p>
+    </div>
+
+    <!-- Vintage Silver Ring -->
+    <div class="product-card" onclick="openQuickView(this)" data-images="https://i.pinimg.com/736x/59/f4/7d/59f47dbd03103f8cea9678af3b36c674.jpg,https://i.pinimg.com/736x/59/f4/7d/59f47dbd03103f8cea9678af3b36c674.jpg,https://i.pinimg.com/736x/59/f4/7d/59f47dbd03103f8cea9678af3b36c674.jpg" data-name="Vintage Silver Ring" data-price="₹1200" data-original-price="₹1500">
+      <img
+        src="https://i.pinimg.com/736x/59/f4/7d/59f47dbd03103f8cea9678af3b36c674.jpg"
+        alt="Vintage Silver Ring"
+        class="product-image fine-silver-img"
+      />
+      <h3 class="product-name">Vintage Silver Ring</h3>
+      <p>₹1200</p>
+    </div>
+
+    <!-- Vintage Silver Bracelets -->
+    <div class="product-card" onclick="openQuickView(this)" data-images="https://i.pinimg.com/1200x/73/51/72/735172f2e427df8d90ba5bc0bca91c11.jpg,https://i.pinimg.com/1200x/73/51/72/735172f2e427df8d90ba5bc0bca91c11.jpg,https://i.pinimg.com/1200x/73/51/72/735172f2e427df8d90ba5bc0bca91c11.jpg" data-name="Vintage Silver Bracelets" data-price="₹1500" data-original-price="₹1900">
+      <img
+        src="https://i.pinimg.com/1200x/73/51/72/735172f2e427df8d90ba5bc0bca91c11.jpg"
+        alt="Vintage Silver Bracelets"
+        class="product-image fine-silver-img"
+      />
+      <h3 class="product-name">Vintage Silver Bracelets</h3>
+      <p>₹1500</p>
+    </div>
+  </div>
+</section>
+
+<!-- Quick View Modal -->
+<div id="quickViewModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeQuickView()">&times;</span>
+
+    <!-- Scrollable Images -->
+    <div class="image-scroll" id="imageScroll">
+      <!-- Images will be populated here -->
+    </div>
+
+    <!-- Product Details -->
+    <div class="modal-details">
+      <h2 id="productName"></h2>
+      <div class="price">
+        <span id="originalPrice"></span>
+        <span id="discountPrice"></span>
+      </div>
+
+      <!-- Options -->
+      <div class="options">
+        <label>Color:</label>
+        <select id="colorSelect">
+          <option value="silver">Silver</option>
+        </select>
+
+        <label>Material:</label>
+        <input type="text" id="material" value="Silver" readonly>
+
+        <label>Chain Length:</label>
+        <select id="chainLength">
+          <option value="16">16 inch</option>
+          <option value="18">18 inch</option>
+          <option value="20">20 inch</option>
+        </select>
+      </div>
+
+      <button class="add-to-cart" onclick="addToCart(document.getElementById('productName').innerText, document.getElementById('discountPrice').innerText.replace('₹', ''), 'Color: ' + document.getElementById('colorSelect').value + ' | Material: ' + document.getElementById('material').value + ' | Chain: ' + document.getElementById('chainLength').value + ' inch')">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-btn" target="_blank">
+  WhatsApp
+</a>
+
+<script src="script.js"></script>
+
+</body>
+</html>

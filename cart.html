@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart | Old Soul</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">OLD SOUL</div>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="new-arrival.html">New Arrival</a>
+    <a href="best-seller.html">Best Seller</a>
+    <a href="fine-silver.html">Fine Silver</a>
+    <a href="gifting.html">Gifting</a>
+
+    <!-- Shopping Cart Icon -->
+    <a href="cart.html" class="cart-btn">
+      <img src="https://img.icons8.com/ios-filled/50/000000/shopping-cart.png" alt="Cart">
+      <span class="cart-count" id="cart-count">0</span>
+    </a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <h1>Shopping Cart</h1>
+  <p>Your selected items</p>
+</section>
+
+<section class="section">
+  <div id="cart-items">
+    <p>Your cart is empty.</p>
+  </div>
+</section>
+
+<!-- CHECKOUT PAGE - HIDE BY DEFAULT -->
+<div id="checkoutPage" class="checkout-container" style="display:none;">
+  <div class="checkout-wrapper">
+    <!-- Progress Steps -->
+    <div class="checkout-steps">
+      <div class="step active"><span>1</span> Cart</div>
+      <div class="step active"><span>2</span> Details</div>
+      <div class="step"><span>3</span> Payment</div>
+      <div class="step"><span>4</span> Complete</div>
+    </div>
+
+    <!-- Customer Details -->
+    <div class="checkout-form">
+      <h2 class="checkout-title">Order Details</h2>
+
+      <!-- Cart Summary -->
+      <div id="orderSummary" class="order-summary">
+      </div>
+
+      <!-- Contact Form -->
+      <div class="form-group">
+        <input type="text" id="customerName" placeholder="Full Name" class="vintage-input">
+      </div>
+      <div class="form-row">
+        <input type="tel" id="phoneInput" placeholder="Phone (+91)" class="vintage-input" maxlength="12">
+        <input type="email" placeholder="Email" class="vintage-input">
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="Address" class="vintage-input">
+        <textarea placeholder="Additional Notes" class="vintage-textarea"></textarea>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="checkout-actions">
+      <button id="backToCart" class="btn-back">← Back to Cart</button>
+      <button id="placeOrder" class="btn-checkout">Place Order Now</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+  // Initialize cart display and summary on page load
+  updateCartDisplay();
+  updateCheckoutSummary();
+
+  function checkout() {
+    document.querySelector('.vintage-cart').style.display = 'none';
+    document.getElementById('checkoutPage').style.display = 'block';
+  }
+
+  // Back to cart
+  document.getElementById('backToCart').addEventListener('click', function() {
+    document.getElementById('checkoutPage').style.display = 'none';
+    document.querySelector('.vintage-cart').style.display = 'block';
+  });
+
+  document.getElementById('phoneInput').addEventListener('input', function(e) {
+    let value = e.target.value.replace(/\D/g, '');  // Keep only numbers
+
+    // If backspacing, let user delete freely
+    if (e.inputType === 'deleteContentBackward' || e.inputType === 'deleteContentForward') {
+      e.target.value = value;  // Just numbers, no +91
+      return;
+    }
+
+    // Limit to 10 digits
+    if (value.length > 10) {
+      value = value.slice(0, 10);
+    }
+
+    // Only format when exactly 10 digits
+    if (value.length === 10) {
+      e.target.value = '+91 ' + value;
+    } else {
+      e.target.value = value;
+    }
+  });
+
+  // Place Order (WhatsApp)
+  document.getElementById('placeOrder').addEventListener('click', function() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const name = document.getElementById('customerName').value || 'Customer';
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const orderId = 'OS' + Date.now().toString().slice(-6);
+    const itemsList = cart.map(item => `${item.name} (x${item.quantity})`).join(', ');
+
+    const message = `Dear ${name},
+
+We're delighted to confirm your order with OldSoul 💎
+Your jewellery has been successfully booked.
+
+🔐 Order ID: ${orderId}
+💍 Items: ${itemsList}
+💰 Total Amount: ₹${total}
+
+Our artisans are preparing your piece with utmost care.
+Shipping details will be shared shortly.
+
+Warm regards,
+OldSoul
+✨ Crafted with Love`;
+
+    const whatsappUrl = `https://wa.me/917620173662?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  });
+</script>
+
+</body>
+</html>

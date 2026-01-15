@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gifting | Old Soul</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">OLD SOUL</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="new-arrival.html">New Arrival</a>
+      <a href="best-seller.html">Best Seller</a>
+      <a href="fine-silver.html">Fine Silver</a>
+      <a href="gifting.html">Gifting</a>
+
+      <!-- Shopping Cart Icon -->
+      <a href="cart.html" class="cart-btn">
+        <img src="https://img.icons8.com/ios-filled/50/000000/shopping-cart.png" alt="Cart">
+        <span class="cart-count" id="cart-count">0</span>
+      </a>
+    </nav>
+</header>
+
+<section class="page-hero">
+  <h1>Gifting</h1>
+  <p>Meaningful pieces for timeless moments.</p>
+</section>
+
+<section class="section">
+  <div class="product-card" onclick="openQuickView(this)" data-images="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5HaWZ0IDE8L3RleHQ+PC9zdmc+,data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5HaWZ0IDE8L3RleHQ+PC9zdmc+,data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5HaWZ0IDE8L3RleHQ+PC9zdmc+" data-name="Promise Gift Box" data-price="₹2200" data-original-price="₹2800" data-rating="4.9" data-reviews="845">
+    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5HaWZ0IDE8L3RleHQ+PC9zdmc+" alt="Promise Gift Box">
+    <h3>Promise Gift Box</h3>
+    <p>₹2200</p>
+  </div>
+  <div class="product-card" onclick="openQuickView(this)" data-images="images/gift2.jpg,images/gift2-2.jpg,images/gift2-3.jpg" data-name="Soulmate Set" data-price="₹3000" data-original-price="₹3800" data-rating="4.8" data-reviews="712">
+    <img src="images/gift2.jpg" alt="Soulmate Set">
+    <h3>Soulmate Set</h3>
+    <p>₹3000</p>
+  </div>
+</section>
+
+<!-- Quick View Modal -->
+<div id="quickViewModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeQuickView()">&times;</span>
+
+    <!-- Scrollable Images -->
+    <div class="image-scroll" id="imageScroll">
+      <!-- Images will be populated here -->
+    </div>
+
+    <!-- Product Details -->
+    <div class="modal-details">
+      <h2 id="productName"></h2>
+      <div class="price">
+        <span id="originalPrice"></span>
+        <span id="discountPrice"></span>
+      </div>
+      <div class="rating" id="rating">⭐⭐⭐⭐☆ (612)</div>
+
+      <!-- Options -->
+      <div class="options">
+        <label>Color:</label>
+        <select id="colorSelect">
+          <option value="silver">Silver</option>
+        </select>
+
+        <label>Material:</label>
+        <input type="text" id="material" value="Silver" readonly>
+
+        <label>Chain Length:</label>
+        <select id="chainLength">
+          <option value="16">16 inch</option>
+          <option value="18">18 inch</option>
+          <option value="20">20 inch</option>
+        </select>
+      </div>
+
+      <button class="add-to-cart" onclick="addToCart(document.getElementById('productName').innerText, document.getElementById('discountPrice').innerText.replace('₹', ''), 'Color: ' + document.getElementById('colorSelect').value + ' | Material: ' + document.getElementById('material').value + ' | Chain: ' + document.getElementById('chainLength').value + ' inch')">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<a href="https://wa.me/917620173662?text=Hello%20Old%20Soul" class="whatsapp-btn" target="_blank">
+  WhatsApp
+</a>
+
+<script src="script.js"></script>
+
+</body>
+</html>
